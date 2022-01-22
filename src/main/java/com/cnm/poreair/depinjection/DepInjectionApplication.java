@@ -1,6 +1,7 @@
 package com.cnm.poreair.depinjection;
 
 import com.cnm.poreair.depinjection.controllers.ConstructorInjectedController;
+import com.cnm.poreair.depinjection.controllers.I18nController;
 import com.cnm.poreair.depinjection.controllers.MyController;
 import com.cnm.poreair.depinjection.controllers.PropertyInjectedController;
 import com.cnm.poreair.depinjection.controllers.SetterInjectedController;
@@ -14,6 +15,9 @@ public class DepInjectionApplication{
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(DepInjectionApplication.class, args);
+
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 
 		MyController myController = (MyController) ctx.getBean("myController");
 

@@ -16,8 +16,15 @@ public class MyController {
     public MyController(GreetingService greetingService) {
         this.greetingService = greetingService;
     }
-    
+
     public String sayHello(){
         return greetingService.sayGreeting();
     }
+
+    /**
+     * Provided another  instance of Greeting Service setting it as @Primary
+     * No need to use @AutoWire here
+     * nor @Qualifier because we are using @Primary in PrimaryGreetingService.java
+     * and it becomes the default GreetingService
+     */
 }
