@@ -1,6 +1,6 @@
 package com.cnm.poreair.depinjection.controllers;
 
-import com.cnm.poreair.depinjection.services.GreetingServiceImp;
+import com.cnm.poreair.depinjection.services.ConstructorGreetingService;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,7 @@ public class SetterInjectedControllerTest {
     @BeforeEach
     void setup(){
         controller = new SetterInjectedController();
-        controller.setGreetingService(new GreetingServiceImp());
+        controller.setGreetingService(new ConstructorGreetingService());
     }
 
     @Test

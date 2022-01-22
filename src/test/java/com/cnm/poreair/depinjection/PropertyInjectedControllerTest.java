@@ -3,7 +3,7 @@ package com.cnm.poreair.depinjection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import com.cnm.poreair.depinjection.controllers.PropertyInjectedController;
-import com.cnm.poreair.depinjection.services.GreetingServiceImp;
+import com.cnm.poreair.depinjection.services.ConstructorGreetingService;
 
 class PropertyInjectedControllerTest {
     
@@ -13,7 +13,7 @@ class PropertyInjectedControllerTest {
     void setUp(){
         controller = new PropertyInjectedController();
 
-        controller.greetingService = new GreetingServiceImp();
+        controller.greetingService = new ConstructorGreetingService();
     }
 
     @Test
