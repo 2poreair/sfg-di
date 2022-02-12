@@ -9,7 +9,10 @@ import com.cnm.poreair.depinjection.controllers.SetterInjectedController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
+//overriding spring boots component scan so it sees all packages in the main java folder.
+@ComponentScan(basePackages = {"com.cnm.poreair.depinjection","air.twopore.pets"})
 @SpringBootApplication
 public class DepInjectionApplication{
 
