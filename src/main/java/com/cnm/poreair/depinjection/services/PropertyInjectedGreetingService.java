@@ -1,9 +1,8 @@
-package air.twopore.pets;
+package com.cnm.poreair.depinjection.services;
 
 import com.cnm.poreair.depinjection.services.GreetingService;
 import org.springframework.stereotype.Service;
 
-@Service
 public class PropertyInjectedGreetingService implements GreetingService {
 
     @Override
