@@ -1,15 +1,16 @@
 package com.cnm.poreair.depinjection.services;
 
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Service;
+import com.cnm.poreair.depinjection.repositories.EnglishGreetingRepository;
 
-@Profile("EN")
-@Service("i18nService")
 public class I18nEnglishGreetingService implements GreetingService{
 
-    @Override
-    public String sayGreeting() {
-        return "Hello World - EN";
+    private final EnglishGreetingRepository englishGreetingRepository;
+
+    public I18nEnglishGreetingService(EnglishGreetingRepository englishGreetingRepository) {
+        this.englishGreetingRepository = englishGreetingRepository;
     }
+
+    @Override
+    public String sayGreeting() { return "Hello World - EN"; }
     
 }

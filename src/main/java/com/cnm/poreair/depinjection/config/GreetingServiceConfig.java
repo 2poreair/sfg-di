@@ -1,15 +1,39 @@
 package com.cnm.poreair.depinjection.config;
 
-import com.cnm.poreair.depinjection.services.ConstructorGreetingService;
-import com.cnm.poreair.depinjection.services.PropertyInjectedGreetingService;
-import com.cnm.poreair.depinjection.services.SetterInjectedGreetingService;
+import air.twopore.pets.PrimaryGreetingService;
+import com.cnm.poreair.depinjection.repositories.EnglishGreetingRepository;
+import com.cnm.poreair.depinjection.repositories.EnglishGreetingRepositoryImpl;
+import com.cnm.poreair.depinjection.services.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.Set;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class GreetingServiceConfig {
+
+    @Profile({"ES","Default"})
+    @Bean("i18nService")
+    I18nSpanishGreetingService i18nSpanishGreetingService(){
+        return new I18nSpanishGreetingService();
+    }
+
+    @Bean
+    EnglishGreetingRepository englishGreetingRepository(){
+        return new EnglishGreetingRepositoryImpl();
+    }
+
+    @Profile("EN")
+    @Bean
+    I18nEnglishGreetingService i18nService(EnglishGreetingRepository englishGreetingRepository){
+        return new I18nEnglishGreetingService(englishGreetingRepository);
+    }
+
+    @Primary
+    @Bean
+    PrimaryGreetingService primaryGreetingService(){
+        return new PrimaryGreetingService();
+    }
 
     @Bean
     ConstructorGreetingService constructorGreetingService(){
