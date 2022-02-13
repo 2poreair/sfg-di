@@ -4,11 +4,9 @@ import air.twopore.pets.PrimaryGreetingService;
 import com.cnm.poreair.depinjection.repositories.EnglishGreetingRepository;
 import com.cnm.poreair.depinjection.repositories.EnglishGreetingRepositoryImpl;
 import com.cnm.poreair.depinjection.services.*;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 
+@ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
@@ -35,7 +33,7 @@ public class GreetingServiceConfig {
         return new PrimaryGreetingService();
     }
 
-    @Bean
+    //@Bean
     ConstructorGreetingService constructorGreetingService(){
         return new ConstructorGreetingService();
     }
