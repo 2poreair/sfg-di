@@ -12,7 +12,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 //overriding spring boots component scan so it sees all packages in the main java folder.
-@ComponentScan(basePackages = {"com.cnm.poreair.depinjection","air.twopore.pets"})
+//@ComponentScan(basePackages = {"com.cnm.poreair.depinjection","air.twopore.pets"})
+/*
+* Removing component scan as we now no longer have annotations that need to be scanned outside of the
+* config/GreetingServiceConfig file.
+* */
 @SpringBootApplication
 public class DepInjectionApplication{
 
