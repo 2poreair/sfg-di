@@ -6,6 +6,7 @@ import com.cnm.poreair.depinjection.controllers.MyController;
 import com.cnm.poreair.depinjection.controllers.PropertyInjectedController;
 import com.cnm.poreair.depinjection.controllers.SetterInjectedController;
 
+import com.cnm.poreair.depinjection.datasource.FakeDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -48,6 +49,11 @@ public class DepInjectionApplication{
 		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
 
 		System.out.println(constructorInjectedController.getGreeting());
+
+		FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
+		System.out.println(fakeDataSource.getUserName());
+		System.out.println(fakeDataSource.getPassword());
+		System.out.println(fakeDataSource.getJdbCurl());
 	}
 
 }
